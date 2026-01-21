@@ -31,7 +31,17 @@ const reportSchema = new mongoose.Schema({
         type: String,
         enum: ['uploaded', 'processing', 'completed', 'failed'],
         default: 'uploaded'
+    },
+    aiError: {
+        type: String,
+        default: null
+    },
+    aiDisclaimer: {
+        type: String,
+        default: "This AI-generated content is not medical advice."
     }
+
+
 }, { timestamps: true, collection: "report" });
 
 export default mongoose.model('Report', reportSchema)

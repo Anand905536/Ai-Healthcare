@@ -22,14 +22,20 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    profilePicture:{
+    profilePicture: {
         type: String,
-        default:null,
+        default: null,
     },
-  },
-   {
-    timestamps: true ,collection: "user" 
-   }
+    passwordResetToken: {
+        type: String
+    },
+    passwordResetExpries: {
+        type: Date
+    }
+},
+    {
+        timestamps: true, collection: "user"
+    }
 )
 
-export default mongoose.model('User',userSchema)
+export default mongoose.model('User', userSchema)
